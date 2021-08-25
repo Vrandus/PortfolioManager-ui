@@ -1,0 +1,27 @@
+<ul ngbNav #nav="ngbNav" class="nav-pills">
+    <li ngbNavItem>
+      <a ngbNavLink>Accounts</a>
+      <ng-template ngbNavContent>
+          <app-accounts></app-accounts>
+        </ng-template>
+    </li>
+    <li ngbNavItem>
+      <a ngbNavLink>Net Worth</a>
+      <ng-template ngbNavContent>
+          <app-net-worth></app-net-worth>
+      </ng-template>
+    </li>
+    <li ngbNavItem>
+        <a ngbNavLink>Market Movers</a>
+        <ng-template ngbNavContent>
+            <app-market-movers></app-market-movers>
+        </ng-template>
+      </li>
+      <li ngbNavItem>
+        <a ngbNavLink>Insights</a>
+        <ng-template ngbNavContent>
+            <app-insights></app-insights>
+        </ng-template>
+      </li>
+  </ul>
+  <div [ngbNavOutlet]="nav"></div>
