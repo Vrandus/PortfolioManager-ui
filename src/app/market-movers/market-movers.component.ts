@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GainersComponent } from './gainers/gainers.component';
+import { LosersComponent } from './losers/losers.component';
 
 @Component({
   selector: 'app-market-movers',
