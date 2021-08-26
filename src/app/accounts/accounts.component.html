@@ -1,1 +1,12 @@
-<p>accounts works!</p>
+<section class='container'>
+    <h5 class=mt-5>{{'Cash ($' + cashAccountsTotal + ')'}}</h5>
+    <app-accounts-table
+        [accounts] = 'cashAccounts'
+        [isCash] = 'true'
+    ></app-accounts-table>
+    <h5 class=mt-5>{{'Investments ($' + investmentAccountsTotal + ')'}}</h5>
+    <app-accounts-table
+        [accounts] = 'investmentAccounts'
+        [isCash] = 'false'
+    ></app-accounts-table>
+</section>

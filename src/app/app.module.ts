@@ -9,6 +9,9 @@ import { AccountsComponent } from './accounts/accounts.component';
 import { NetWorthComponent } from './net-worth/net-worth.component';
 import { MarketMoversComponent } from './market-movers/market-movers.component';
 import { InsightsComponent } from './insights/insights.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AccountsTableComponent } from './accounts/accounts-table/accounts-table.component';
+import { AccountRowComponent } from './accounts/accounts-table/account-row/account-row.component'
 
 @NgModule({
   declarations: [
@@ -17,12 +20,15 @@ import { InsightsComponent } from './insights/insights.component';
     AccountsComponent,
     NetWorthComponent,
     MarketMoversComponent,
-    InsightsComponent
+    InsightsComponent,
+    AccountsTableComponent,
+    AccountRowComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    HttpClientModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

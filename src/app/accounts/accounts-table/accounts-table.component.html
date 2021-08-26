@@ -1,0 +1,16 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Bank/Broker</th>
+      <th scope="col">Account Type</th>
+      <th scope="col">Cash Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let account of accounts; index as i">
+        <td>{{ account.bankName }}</td>
+        <td>{{ account.description }}</td>
+        <td>{{ account.cashValue }}</td>
+      </tr>
+    </tbody>
+  </table>
