@@ -21,10 +21,10 @@ export class NetWorthComponent implements OnInit {
 
   tickerHistoricalData = {} as any;
   resultsStr = ""
-  view: [number, number] = [700, 300];
+  view: [number, number] = [1000, 500];
   isLoaded = false;
   // options
-  legend: boolean = false;
+  legend: boolean = true;
   showLabels: boolean = true;
   animations: boolean = true;
   xAxis: boolean = true;
@@ -97,8 +97,21 @@ export class NetWorthComponent implements OnInit {
     }
     console.log(this.transactionData)
     for(let transaction of this.transactionData){
+      let resultsPointer = 0;
       for(let result in this.results){
-        
+        if (this.results[parseInt(result)].name == transaction.ticker){
+          resultsPointer = parseInt(result)
+        }
+      }
+      if(transaction.transactionType == "BUY"){
+        for(let i in this.results[resultsPointer].series){
+          if(this.results[resultsPointer].series[parseInt(i)].name < transaction.transactionTime){
+            this.results[resultsPointer].series[parseInt(i)].value = 0
+          }
+          if(this.results[resultsPointer].series[parseInt(i)].name >= transaction.transactionTime){
+            this.results[resultsPointer].series[parseInt(i)].value = transaction.units * parseInt(this.results[resultsPointer].series[parseInt(i)].value)
+          }
+        }
       }
     }
     for (let i in this.results){
