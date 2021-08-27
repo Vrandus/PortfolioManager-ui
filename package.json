@@ -23,8 +23,12 @@
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
+    "@swimlane/ngx-charts": "^19.0.1",
+    "apexcharts": "^3.28.1",
     "bootstrap": "^4.5.0",
     "mdb-ui-kit": "^3.9.0",
+    "ng-apexcharts": "^1.5.12",
+    "ngx-charts": "^3.0.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

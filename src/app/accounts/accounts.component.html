@@ -1,1 +1,14 @@
-<p>accounts works!</p>
+<section class='container'>
+    <h5 class='mt-5 ml-2 text-start account-type'>Cash</h5>
+    <h5 class='mt-5 ml-2 text-end account-type'>{{'($' + cashAccountsTotal.toFixed(2) + ')'}}</h5>
+    <app-accounts-table
+        [accounts] = 'cashAccounts'
+        [isCash] = 'true'
+    ></app-accounts-table>
+    <h5 class='mt-5 ml-2'>{{'Investments ($' + investmentAccountsTotal.toFixed(2) + ')'}}</h5>
+    <app-accounts-table
+        [accounts] = 'investmentAccounts'
+        [isCash] = 'false'
+        [tickerPrices] = 'tickerPrices'
+    ></app-accounts-table>
+</section>

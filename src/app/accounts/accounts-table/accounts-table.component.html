@@ -1,0 +1,76 @@
+<table class="table table-hover table-light">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Bank/Broker</th>
+      <th scope="col">Account Type</th>
+      <th scope="col">Total Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr 
+      *ngFor="let account of accounts; index as i"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      style="cursor: pointer;"
+      (click)="setAccount(account)"
+    >
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ account.bankName }}</td>
+      <td>{{ account.description }}</td>
+      <td>{{'$' + account.cashValue.toFixed(2) }}</td>
+    </tr>
+    
+    </tbody>
+  </table>
+
+<!-- Modal -->
+<div *ngIf="holdings.length > 0" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Holdings</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body card">
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ticker</th>
+            <th scope="col">Units</th>
+            <th scope="col">Asset Type</th>
+            <th scope="col">Market Price</th>
+            <th scope="col">Book Value</th>
+            <th scope="col">Market Value</th>
+            <th scope="col">%P&L</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr 
+            *ngFor="let holding of this.holdings; index as i;" 
+            class={{holding.class}}
+          >
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ holding.ticker }}</td>
+            <td>{{ holding.units }}</td>
+            <td>{{ holding.assetType }}</td>
+            <td>{{'$' + holding.price }}</td>
+            <td>{{'$' + holding.bookValue }}</td>
+            <td>{{'$' + holding.marketValue }}</td>
+            <td>{{ holding.pL }}</td>
+            <td>
+              <button type="button" class="btn btn-primary">+</button>
+              <button type="button" class="btn btn-secondary ml-2">-</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
