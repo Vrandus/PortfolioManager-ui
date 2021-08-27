@@ -6,49 +6,17 @@
 <table class="table table-striped table-responsive-md btn-table">
 
     <tbody>
-      <tr>
-        <th scope="row">1</th>
+
+      <tr *ngFor="let quote of losers.quotes; index as i">
+        <th scope="row">{{i+1}}</th>
         <td>
-          <button mdbBtn class="btn btn-primary" type="button" mdbWavesEffect>AMD</button>
+          <button mdbBtn class="btn btn-{{tickerColor[i]}}" type="button" mdbWavesEffect>{{quote.symbol}}</button>
         </td>
-        <td>Advance Micro Devices</td>
-        <td class="red-icon">$344.89<mat-icon>trending_down</mat-icon></td>
+        <td>{{tickerInfoShortName[i]}}</td>
+        <td class="red-icon">{{tickerInfoFiftyDayAverageChangePercent[i]}}%<mat-icon>trending_down</mat-icon></td>
 
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>
-          <button mdbBtn class="btn btn-secondary" type="button" mdbWavesEffect>TSLA</button>
-        </td>
-        <td>Tesla</td>
-        <td class="red-icon">$434.44<mat-icon>trending_down</mat-icon></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>
-            <button mdbBtn class="btn btn-success" type="button" mdbWavesEffect>WMT</button>
-          </td>
-        <td>Walmart</td>
-        <td class="red-icon">$526.45<mat-icon>trending_down</mat-icon></td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>
-            <button mdbBtn class="btn btn-info" type="button" mdbWavesEffect>INTC</button>
-          </td>
-        <td>Intel</td>
-        <td class="red-icon">$617.23<mat-icon>trending_down</mat-icon></td>
-        
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td>
-            <button mdbBtn class="btn btn-warning" type="button" mdbWavesEffect>TWTR</button>
-          </td>
-        <td>Twitter</td>
-        <td class="red-icon">$455.67<mat-icon>trending_down</mat-icon></td>
-        
-      </tr>
+      
     </tbody>
 
   </table>
