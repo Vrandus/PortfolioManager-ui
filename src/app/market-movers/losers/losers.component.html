@@ -1,0 +1,22 @@
+
+<br>
+<h3>Top Losers</h3>
+<br>
+
+<table class="table table-striped table-responsive-md btn-table">
+
+    <tbody>
+
+      <tr *ngFor="let quote of losers.quotes; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>
+          <button mdbBtn class="btn btn-{{tickerColor[i]}}" type="button" mdbWavesEffect>{{quote.symbol}}</button>
+        </td>
+        <td>{{tickerInfoShortName[i]}}</td>
+        <td class="red-icon">{{tickerInfoFiftyDayAverageChangePercent[i]}}%<mat-icon>trending_down</mat-icon></td>
+
+      </tr>
+      
+    </tbody>
+
+  </table>

@@ -9,11 +9,14 @@ import { NetWorthComponent } from './net-worth/net-worth.component';
 import { MarketMoversComponent } from './market-movers/market-movers.component';
 import { InsightsComponent } from './insights/insights.component';
 import { HttpClientModule } from '@angular/common/http';
-
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { AccountsTableComponent } from './accounts/accounts-table/accounts-table.component';
+import { GainersComponent } from './market-movers/gainers/gainers.component';
+import { LosersComponent } from './market-movers/losers/losers.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -24,12 +27,16 @@ import { AccountsTableComponent } from './accounts/accounts-table/accounts-table
     NetWorthComponent,
     MarketMoversComponent,
     InsightsComponent,
+    GainersComponent,
+    LosersComponent,
     AccountsTableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FlexLayoutModule,
+    MatIconModule,
     HttpClientModule,
     NgxChartsModule,
     BrowserAnimationsModule,

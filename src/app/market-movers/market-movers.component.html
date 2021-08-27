@@ -1,1 +1,10 @@
-<p>market-movers works!</p>
+<div class='container mt-5'>
+    <div fxLayout="row" fxLayoutAlign="start center">
+        <div fxFlex="2%"> </div>
+        <app-gainers fxFlex="46%" [gainers]="moversData.finance.result[0]" [tickerInfoShortName]="gaintickerInfoShortName" [tickerInfoFiftyDayAverageChangePercent]="gaintickerInfoFiftyDayAverageChangePercent"></app-gainers>
+        <div fxFlex="4%"> </div>
+        <app-losers fxFlex="46%" [losers]="moversData.finance.result[1]" [tickerInfoShortName]="losetickerInfoShortName" [tickerInfoFiftyDayAverageChangePercent]="losetickerInfoFiftyDayAverageChangePercent"></app-losers>
+        <div fxFlex="2%"> </div>
+    </div>
+</div>
+  
