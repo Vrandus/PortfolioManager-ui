@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http'
 export class TransactionsService {
 
   constructor(private http:HttpClient) { }
-  getTransactionData(){
-    return this.http.get("http://portfoliomanager-portfoliomanager.namdevops4.conygre.com/api/transaction");
+  async getTransactionData(){
+    const result = this.http.get("http://portfoliomanager-portfoliomanager.namdevops4.conygre.com/api/transaction");
+    return result
   }
 }
