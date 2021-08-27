@@ -9,7 +9,12 @@ import { NetWorthComponent } from './net-worth/net-worth.component';
 import { MarketMoversComponent } from './market-movers/market-movers.component';
 import { InsightsComponent } from './insights/insights.component';
 import { HttpClientModule } from '@angular/common/http';
+
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgApexchartsModule } from 'ng-apexcharts';
 import { AccountsTableComponent } from './accounts/accounts-table/accounts-table.component';
+
 
 @NgModule({
   declarations: [
@@ -24,8 +29,11 @@ import { AccountsTableComponent } from './accounts/accounts-table/accounts-table
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     NgbModule,
+    HttpClientModule,
+    NgxChartsModule,
+    BrowserAnimationsModule,
+    NgApexchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
