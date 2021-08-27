@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -11,7 +10,6 @@ import { MarketMoversComponent } from './market-movers/market-movers.component';
 import { InsightsComponent } from './insights/insights.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountsTableComponent } from './accounts/accounts-table/accounts-table.component';
-import { AccountRowComponent } from './accounts/accounts-table/account-row/account-row.component'
 
 @NgModule({
   declarations: [
@@ -21,8 +19,7 @@ import { AccountRowComponent } from './accounts/accounts-table/account-row/accou
     NetWorthComponent,
     MarketMoversComponent,
     InsightsComponent,
-    AccountsTableComponent,
-    AccountRowComponent
+    AccountsTableComponent
   ],
   imports: [
     BrowserModule,

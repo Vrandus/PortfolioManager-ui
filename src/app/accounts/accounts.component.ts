@@ -15,7 +15,7 @@ export class AccountsComponent implements OnInit {
   investmentAccounts:Array<Object> = [];
   cashAccountsTotal:number = 0;
   investmentAccountsTotal:number = 0;
-  tickerPrices:any = [];
+  tickerPrices:any = {};
   error = null;
 
   constructor(private accountDataService:AccountDataService) { }
@@ -50,10 +50,7 @@ export class AccountsComponent implements OnInit {
         this.accountDataService.getMarketValuesOfOwnedAssets(Array.from(tickers))
           .subscribe((data:any) => {
             for (let result of data.quoteResponse.result) {
-              this.tickerPrices.push({
-                symbol: result.symbol,
-                result: result.regularMarketPrice
-              })
+              this.tickerPrices[result.symbol] = result.regularMarketPrice
             }
             console.log(this.tickerPrices)
           })
