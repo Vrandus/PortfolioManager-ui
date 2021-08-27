@@ -54,7 +54,7 @@ export class AccountsTableComponent implements OnInit {
           bookValue: bookValue,
           marketValue: marketValue,
           pL: pL,
-          class: (new Number(pL) > 0 ? 'table-success' : 'table-warning')
+          class: (new Number(pL) > 0 ? 'table-success' : 'table-danger')
         })
       }
     }
