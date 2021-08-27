@@ -18,7 +18,7 @@ export class AccountDataService {
       {
         headers: new HttpHeaders()
           .append("x-rapidapi-host", "apidojo-yahoo-finance-v1.p.rapidapi.com")
-          .append("x-rapidapi-key", "1904d3107bmsh170ad7c8c42c5c0p168816jsn40c75b288681"),
+          .append("x-rapidapi-key", "13ce52f633mshd6408ea1a7d4c4ep1993c6jsn6b8bc62dcae3"),
         params: new HttpParams()
           .append('region', 'US')
           .append('symbols', tickers.join(','))
