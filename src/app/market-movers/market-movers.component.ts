@@ -29,24 +29,36 @@ export class MarketMoversComponent implements OnInit {
     this.moversdataService.getMoversData(this.paramObj).subscribe((data:any)=>{
       console.log(data);
       this.moversData = data;
-      var i=0;
+
+      let  tickers1:Set<any> = new Set();
       for (let quote of data.finance.result[0].quotes) {
-        this.tickerdataService.getTickerData({ticker:quote.symbol}).subscribe((data:any)=>{
-          console.log(data);
-          console.log(data.quoteResponse.result[0].shortName);
-          this.gaintickerInfoShortName[i++]=data.quoteResponse.result[0].shortName;
-          this.gaintickerInfoFiftyDayAverageChangePercent[i++]=data.quoteResponse.result[0].fiftyDayAverageChangePercent.toFixed(4);
-          });
-        }
-      i=0;
+        tickers1.add(quote.symbol);
+      }
+      var i=0;
+      console.log(tickers1)
+      this.tickerdataService.getTickerData(Array.from(tickers1))
+          .subscribe((data:any) => {
+            console.log(data);
+            for (let x of data.quoteResponse.result) {
+              this.gaintickerInfoShortName[i]=x.shortName;
+              this.gaintickerInfoFiftyDayAverageChangePercent[i++]=Math.abs(x.fiftyDayAverageChangePercent.toFixed(4));
+            }
+      });
+
+      let  tickers2:Set<any> = new Set();
       for (let quote of data.finance.result[1].quotes) {
-        this.tickerdataService.getTickerData({ticker:quote.symbol}).subscribe((data:any)=>{
-          console.log(data);
-          console.log(data.quoteResponse.result[0].shortName);
-          this.losetickerInfoShortName[i++]=data.quoteResponse.result[0].shortName;
-          this.losetickerInfoFiftyDayAverageChangePercent[i++]=data.quoteResponse.result[0].fiftyDayAverageChangePercent.toFixed(4);
-          });
-        }
+        tickers2.add(quote.symbol);
+      }
+      console.log(tickers2)
+      var p=0;
+      this.tickerdataService.getTickerData(Array.from(tickers2))
+          .subscribe((data:any) => {
+            console.log(data);
+            for (let y of data.quoteResponse.result) {
+              this.losetickerInfoShortName[p]=y.shortName;
+              this.losetickerInfoFiftyDayAverageChangePercent[p++]=y.fiftyDayAverageChangePercent.toFixed(4);
+            }
+      });
     });
   }
 
